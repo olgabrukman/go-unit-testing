@@ -37,7 +37,7 @@ func TestChargeCustomer(t *testing.T) {
 	// next we want to define the service we wish to test
 	myService := MyService{smsService}
 	// and call said method
-	myService.ChargeCustomer(20)
+	myService.ChargeCustomer(100)
 
 	// at the end, we verify that our myService.ChargeCustomer
 	// method called our mocked SendChargeNotification method

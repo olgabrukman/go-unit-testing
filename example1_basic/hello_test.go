@@ -20,13 +20,12 @@ func TestHelloSimple(t *testing.T) {
 }
 
 func TestHelloFailWithError(t *testing.T) {
-	emptyResult := ""
+	emptyResult := hello("")
 	if emptyResult != GenericGreeting {
 		t.Errorf("failed, expected %v, got [%v]", GenericGreeting, emptyResult)
 	}
 
 	result := hello("Olga")
-	result = result[0 : len(result)-1]
 	expected := "Hello Olga!"
 	if result != expected {
 		t.Errorf("failed, expected \"%v\", got \"%v\"", expected, result)
@@ -34,13 +33,12 @@ func TestHelloFailWithError(t *testing.T) {
 }
 
 func TestHelloFailWithFatal(t *testing.T) {
-	emptyResult := "" //hello("")
+	emptyResult := hello("")
 	if emptyResult != GenericGreeting {
 		t.Fatalf("failed, expected \"%v\", got \"%v\"", GenericGreeting, emptyResult)
 	}
 
 	result := hello("Olga")
-	result = result[0 : len(result)-1]
 	expected := "Hello Olga!"
 	if result != expected {
 		t.Fatalf("failed, expected \"%v\", got \"%v\"", expected, result)

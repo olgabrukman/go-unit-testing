@@ -20,15 +20,13 @@ func TestHealthCheckHandlerGETFull(t *testing.T) {
 	handler(w, req)
 
 	resp := w.Result()
+	//must close body!
+	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
 
 	assert.Equal(t, http.StatusOK, resp.StatusCode)
 	assert.Equal(t, "", resp.Header.Get("Content-Type"))
 	assert.Equal(t, alive, string(body))
-
-	assert.HTTPSuccess(t, handler, "GET", url, nil)
-
-	assert.HTTPBodyContains(t, handler, "GET", url, nil, alive)
 }
 
 func TestHealthCheckHandlerGETShort(t *testing.T) {

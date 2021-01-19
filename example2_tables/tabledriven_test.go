@@ -15,7 +15,7 @@ func TestSplit(t *testing.T) {
 	tests := []test{
 		{input: "a/b/c", sep: "/", want: []string{"a", "b", "c"}},
 		{input: "a/b/c", sep: ",", want: []string{"a/b/c"}},
-		{input: "abc/", sep: "/", want: []string{"abc", ""}},
+		{input: "abc/", sep: "/", want: []string{"abc", "/"}},
 	}
 
 	for _, testCase := range tests {
@@ -35,7 +35,7 @@ func TestSplitWithName(t *testing.T) {
 	}{
 		{name: "simple", input: "a/b/c", sep: "/", want: []string{"a", "b", "c"}},
 		{name: "wrong sep", input: "a/b/c", sep: ",", want: []string{"a/b/c"}},
-		{name: "trailing sep", input: "a/b/c/ ", sep: "/", want: []string{"a", "b", "c", ""}},
+		{name: "trailing sep", input: "a/b/c/ ", sep: "/", want: []string{"a", "b", "c", "/"}},
 		{name: "no sep", input: "abc", sep: "/", want: []string{"abc"}},
 	}
 
@@ -63,6 +63,9 @@ func TestSplitWithRun(t *testing.T) {
 
 	for _, testCase := range tests {
 		tc := testCase // NOTE: https://github.com/golang/go/wiki/CommonMistakes#using-goroutines-on-loop-iterator-variables
+		// Run runs a testcase test as a subtest of t called name. It runs the testcase test in a separate goroutine
+		// and blocks until the test returns or calls t.Parallel to become a parallel test.
+		// Run reports whether the testcase succeeded (or at least did not fail before calling t.Parallel).
 		t.Run(tc.name, func(*testing.T) {
 			got := Split(tc.input, tc.sep)
 			if !reflect.DeepEqual(tc.want, got) {

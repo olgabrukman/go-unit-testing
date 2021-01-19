@@ -30,9 +30,6 @@ func TestAddition(t *testing.T) {
 		{"zero", 0, 0, 0},
 	}
 
-	teardownTestCase := setupTestCase(t)
-	defer teardownTestCase(t)
-
 	for _, testCase := range cases {
 		tc := testCase
 		t.Run(tc.name, func(t *testing.T) {
