@@ -17,3 +17,13 @@ func Split(s, sep string) []string {
 	}
 	return append(result, s)
 }
+
+func Concat(strings []string) string {
+	result := ""
+
+	for _, s := range strings {
+		result = result + s
+	}
+
+	return result
+}

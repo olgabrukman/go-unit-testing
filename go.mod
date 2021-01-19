@@ -7,18 +7,16 @@ require (
 	github.com/Microsoft/hcsshim v0.8.6 // indirect
 	github.com/containerd/continuity v0.0.0-20190827140505-75bee3e2ccb6 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
-	github.com/drgrib/maps v0.0.0-20190206181841-390503673595 // indirect
 	github.com/go-redis/redis v6.15.6+incompatible // indirect
 	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
-	github.com/gorilla/mux v1.7.3
+	github.com/gorilla/mux v1.7.3 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/onsi/ginkgo v1.10.3 // indirect
 	github.com/onsi/gomega v1.7.1 // indirect
 	github.com/pelletier/go-toml v1.6.0 // indirect
-	github.com/pkg/profile v1.4.0
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/spf13/afero v1.2.2 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect

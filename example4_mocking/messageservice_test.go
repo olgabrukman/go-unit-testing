@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"testing"
 
 	"github.com/stretchr/testify/mock"
@@ -13,8 +13,8 @@ type smsServiceMock struct {
 
 // Our mocked smsService method
 func (m smsServiceMock) SendChargeNotification(value int) error {
-	fmt.Println("Mocked charge notification function")
-	fmt.Printf("Value passed in: %d\n", value)
+	log.Println("Mocked charge notification function")
+	log.Printf("Value passed in: %d\n", value)
 	// this records that the method was called and passes in the value
 	// it was called with
 	m.Called(value)

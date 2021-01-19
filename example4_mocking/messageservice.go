@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 // MessageService handles notifying clients they have
@@ -31,14 +32,12 @@ type MyService struct {
 // but here, I want to make some money every time I run my tests
 func (a MyService) ChargeCustomer(value int) error {
 	a.messageService.SendChargeNotification(value)
-	fmt.Printf("Charging Customer For the value of %d\n", value)
+	log.Printf("Charging Customer For the value of %d\n", value)
 	return nil
 }
 
 // A "Production" Example
 func main() {
-	fmt.Println("Hello World")
-
 	smsService := SMSService{}
 	myService := MyService{smsService}
 	myService.ChargeCustomer(100)
